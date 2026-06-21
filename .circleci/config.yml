@@ -5,8 +5,15 @@ jobs:
       image: ubuntu-2004:current 
     steps: 
       - checkout 
-      - run: make deps 
-      - run: make test       
+      - run:
+            name: Install requirements
+            command: make deps
+      - run: 
+            name: Inter on
+            command: make lint
+      - run: 
+            name: test
+            command: make test
 workflows: 
   basic:  
     jobs: 
